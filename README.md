@@ -1,4 +1,4 @@
-````markdown
+
 ⚡ FastDiff<T>
 
 A robust and highly efficient deep object comparison library for .NET 10 (C#) designed for audit logging and change tracking. It uses a hybrid approach of **Compiled Expression Trees** for simple types and **Runtime Reflection** for complex types to generate precise, minimal JSON diffs.
