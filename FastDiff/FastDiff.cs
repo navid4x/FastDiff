@@ -11,7 +11,7 @@ using System.Text.Encodings.Web;
 
 namespace FastDiff
 {
-    public static class SmartDiffer<T>
+    public static class FastDiff<T>
     {
         private static readonly Action<Utf8JsonWriter, T, T>[] _propertyComparers;
         private static readonly Action<Utf8JsonWriter, T, T>[] _complexComparers;
@@ -22,7 +22,7 @@ namespace FastDiff
             Indented = false
         };
 
-        static SmartDiffer()
+        static FastDiff()
         {
             var simpleComparers = new List<Action<Utf8JsonWriter, T, T>>();
             var complexComparers = new List<Action<Utf8JsonWriter, T, T>>();
@@ -158,7 +158,7 @@ namespace FastDiff
                 if (itemType == null)
                     return (w, o, n) => { };
 
-                var itemDifferType = typeof(SmartDiffer<>).MakeGenericType(itemType);
+                var itemDifferType = typeof(FastDiff<>).MakeGenericType(itemType);
                 var getItemDiffMethod = itemDifferType.GetMethod(nameof(GetDiffJson), BindingFlags.Public | BindingFlags.Static);
 
                 if (getItemDiffMethod == null) return (w, o, n) => { };
@@ -225,7 +225,7 @@ namespace FastDiff
             }
 
             // 🌟 اگر کلاس Nested بود
-            var nestedDifferType = typeof(SmartDiffer<>).MakeGenericType(propertyType);
+            var nestedDifferType = typeof(FastDiff<>).MakeGenericType(propertyType);
             var getDiffJsonMethod = nestedDifferType.GetMethod(nameof(GetDiffJson), BindingFlags.Public | BindingFlags.Static);
 
             if (getDiffJsonMethod == null) return (w, o, n) => { };

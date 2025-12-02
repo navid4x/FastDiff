@@ -856,7 +856,7 @@ var snapshot1 = new ElearningPlatformAnalyticsSnapshot
         { "active_sessions", 25000 }
     }
 };
-var NestedRes = FastDiff.SmartDiffer<ElearningPlatformAnalyticsSnapshot>.GetDiffJson(snapshot, snapshot1);
+var NestedRes = FastDiff.FastDiff<ElearningPlatformAnalyticsSnapshot>.GetDiffJson(snapshot, snapshot1);
 
 
 var snapshot2 = new ElearningPlatformAnalyticsSnapshot
@@ -1359,7 +1359,7 @@ var snapshot3 = new ElearningPlatformAnalyticsSnapshot
         { "active_sessions", 25000 }
     }
 };
-var NestedRes2 = FastDiff.SmartDiffer<ElearningPlatformAnalyticsSnapshot>.GetDiffJson(snapshot2, snapshot3);
+var NestedRes2 = FastDiff.FastDiff<ElearningPlatformAnalyticsSnapshot>.GetDiffJson(snapshot2, snapshot3);
 #endregion
 
 var a = 1;
